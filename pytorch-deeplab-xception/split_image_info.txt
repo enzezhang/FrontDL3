@@ -1,0 +1,11 @@
+### This file is created by split_image.py. mosaic_patches.py need it. Do not edit it
+image_width:1205
+image_height:552
+expected patch_w:320
+expected patch_h:240
+adj_overlay_x:320
+adj_overlay_y:240
+column 0:0 1 
+column 1:2 3 
+column 2:4 5 
+column 3:6 7 
