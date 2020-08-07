@@ -2,7 +2,7 @@
 
 export CUDA_VISIBLE_DEVICES=1
 para_file=para.ini
-para_py=/home/hlc/codes/PycharmProjects/DeeplabforRS/parameters.py
+para_py=../script/parameters.py
 eo_dir=$(python2 ${para_py} -p ${para_file} codes_dir)
 expr=${PWD}
 testid=$(basename $expr)
