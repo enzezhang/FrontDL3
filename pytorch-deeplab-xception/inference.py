@@ -16,10 +16,10 @@ from utils.metrics import Evaluator
 from pytorchtools import EarlyStopping
 from torch.autograd import Variable
 
-early_stopping = EarlyStopping(patience=5, verbose=True)
+#early_stopping = EarlyStopping(patience=5, verbose=True)
 import sys
 HOME = os.path.expanduser('~')
-basicCodes_path = HOME + '/code'
+basicCodes_path = HOME + '/data2/Front_DL3/script/'
 sys.path.append(basicCodes_path)
 from datasetRS_Mar15 import *
 import parameters
@@ -110,6 +110,7 @@ def saveImg(img, patch_info, binary=True, fName=''):
 
     # img = Image.fromarray(np.uint8(img*255), mode='L')
     img = (img * 255).astype(rasterio.uint8)
+    #img=img.astype(rasterio.uint8)
     org_img_path = patch_info[0][0]
     boundary = patch_info[1]
     boundary = [item[0].cpu().data.numpy() for item in boundary]

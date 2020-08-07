@@ -18,7 +18,7 @@ from utils.metrics import Evaluator
 import sys
 HOME = os.path.expanduser('~')
 #this path should be modified according to user's direction
-basicCodes_path = HOME + '/data2/code_need_tobe_published/script/'
+basicCodes_path = HOME + '/data2/Front_DL3/script/'
 
 sys.path.append(basicCodes_path)
 from datasetRS import *
