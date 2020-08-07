@@ -5,9 +5,9 @@ This is code for applyging deeplabv3+ to glacier front delineation. the code inc
 ### Installation
   ```Shell
   git clone https://github.com/enzezhang/Front_DL3.git
-  ```
-cd Front_DL3
 
+  cd Front_DL3
+  ```
 ### Installation dependencies
   ```Shell
   pip install matplotlib pillow tensorboardX tqdm
