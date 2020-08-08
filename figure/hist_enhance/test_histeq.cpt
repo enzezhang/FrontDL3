@@ -1,0 +1,13 @@
+100	gray5	105	gray5
+105	gray15	110	gray15
+110	gray25	115	gray25
+115	gray35	120	gray35
+120	gray45	125	gray45
+125	gray55	130	gray55
+130	gray65	135	gray65
+135	gray75	140	gray75
+140	gray85	145	gray85
+145	gray95	150	gray95
+B	black
+F	white
+N	127.5
