@@ -11,7 +11,12 @@ This is code for applyging deeplabv3+ to glacier front delineation. the code inc
 ### Installation dependencies
   ```Shell
   pip install matplotlib pillow tensorboardX tqdm
+  pip install Shapely pyshp pyproj
   ```
+### Install GMT
+```Shell
+  sudo apt-get install gmt gmt-dcw gmt-gshhg
+```
 ### Setting parameter
 
 In the file para.ini, the user need to set working_root, ${User_dir}/Front_DL3, and code dir, ${User_dir}/Front_DL3/script.
