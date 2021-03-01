@@ -28,11 +28,7 @@ In the file para.ini, the user need to set working_root to ${User_dir}/Front_DL3
 
 Also need to set the patch size.
 
-### Change dir
 
-In some script, the direction should be changed.
-
-(1) In pytorch-deeplab-xception/train.py and pytorch-deeplab-xception/inference.py, basicCodes_path need to be set.
 
 ### Run the code.
   ```Shell
