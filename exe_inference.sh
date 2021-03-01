@@ -2,7 +2,7 @@
 
 export CUDA_VISIBLE_DEVICES=1
 para_file=para.ini
-para_py=/home/zez/data3/code/parameters.py
+para_py=./script/parameters.py
 eo_dir=$(python2 ${para_py} -p ${para_file} codes_dir)
 expr=${PWD}
 testid=$(basename $expr)
@@ -20,8 +20,7 @@ mkdir test_output
 
 #python /home/zez/data2/pytorch_deeplab/pytorch-deeplab-xception/inference.py ${work_root} ${work_root}/para.ini ${work_root}/list/test.txt --backbone resnet --workers 1 --cuda --useBN --batchSize 1 --resume ${work_root}/resnet_no_stretch_ALOS1_Mar30.tar
 #python /home/zez/data2/pytorch_deeplab/pytorch-deeplab-xception/inference.py ${work_root} ${work_root}/para.ini ${work_root}/list/test.txt --backbone mobilenet --workers 1 --cuda --useBN --batchSize 1 --resume ${work_root}/mobilenet_histeq_ALOS1_Mar15.tar
-echo "python /home/zez/data3/pytorch_deeplab_running/pytorch-deeplab-xception/inference.py ${work_root} ${work_root}/para.ini ${work_root}/list/test.txt --backbone drn --workers 1 --cuda --useBN --batchSize 1 --resume ${work_root}/$network"
-python /home/zez/data3/pytorch_deeplab_running/pytorch-deeplab-xception/inference.py ${work_root} ${work_root}/para.ini ${work_root}/list/test.txt --backbone drn --workers 1 --cuda --useBN --batchSize 1 --resume ${work_root}/$network
+python ${work_root}/pytorch-deeplab-xception/inference.py ${work_root} ${work_root}/para.ini ${work_root}/list/test.txt --backbone drn --workers 1 --cuda --useBN --batchSize 1 --resume ${work_root}/$network
 
 
 rm -r post_output
