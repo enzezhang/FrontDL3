@@ -10,7 +10,7 @@ This is code for applyging deeplabv3+ to glacier front delineation. the code inc
   ```
 ### Installation dependencies
   ```Shell
-  pip install matplotlib pillow tensorboardX tqdm
+  pip install matplotlib pillow tensorboardX tqdm torch
   pip install Shapely pyshp pyproj
   ```
 ### Install GMT
