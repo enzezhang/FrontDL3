@@ -19,7 +19,7 @@ This is code for applyging deeplabv3+ to glacier front delineation. the code inc
 ```
 ### Setting parameter
 
-In the file para.ini, the user need to set working_root, ${User_dir}/Front_DL3, and code dir, ${User_dir}/Front_DL3/script.
+In the file para.ini, the user need to set working_root to ${User_dir}/Front_DL3, and code dir to ${User_dir}/Front_DL3/script.
 
 Also need to set the patch size.
 
