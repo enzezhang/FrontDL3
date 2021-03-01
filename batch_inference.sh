@@ -1,4 +1,8 @@
 #!/bin/bash
+
+
+#need to define the working path first
+working_path=/home/henry/data/Front_DL3-master
 path=$1
 polygon=$2
 network=$3
@@ -8,10 +12,10 @@ i=0
 count=${#dir[@]}
 while(($i<$count))
 do
-	cd /home/zez/data3/pytorch_deeplab_running/running_dir
+	cd $working_path
         echo "bash preparing_influence.sh $path/${dir[i]}/hist_eq"
 	bash preparing_influence.sh $path/${dir[i]}/hist_eq
-	if [ -f /home/zez/data3/pytorch_deeplab_running/running_dir/list/test.txt ];then
+	if [ -f $working_path/list/test.txt ];then
 		echo "succeed"
 	else
 		echo "error! no test.txt"
@@ -19,7 +23,7 @@ do
 	fi
 	echo "bash exe_inference.sh $polygon $network"
 	bash exe_inference.sh $polygon $network
-	rm /home/zez/data3/pytorch_deeplab_running/running_dir/list/test.txt
+	rm $working_path/list/test.txt
 	if [ -d $path/${dir[i]}/in_polygon_gmt ];then
 		echo "in_polygon_gmt exist"
 	else
