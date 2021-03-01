@@ -8,10 +8,15 @@ This is code for applyging deeplabv3+ to glacier front delineation. the code inc
 
   cd Front_DL3
   ```
-### Installation dependencies
+### Install GDAL
+
+```Shell
+conda install gdal
+```
+### Install dependencies
   ```Shell
-  pip install matplotlib pillow tensorboardX tqdm torch
-  pip install Shapely pyshp pyproj
+  pip install matplotlib pillow tensorboardX tqdm torch torchvision
+  pip install Shapely pyshp pyproj rasterio
   ```
 ### Install GMT
 ```Shell
