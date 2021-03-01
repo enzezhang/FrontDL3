@@ -16,11 +16,11 @@ from utils.metrics import Evaluator
 #from pytorchtools import EarlyStopping
 #early_stopping = EarlyStopping(patience=5, verbose=True)
 import sys
-HOME = os.path.expanduser('~')
+#HOME = os.path.expanduser('~')
 #this path should be modified according to user's direction
-basicCodes_path = HOME + '/data2/Front_DL3/script/'
+#basicCodes_path = HOME + '/data2/Front_DL3/script/'
 
-sys.path.append(basicCodes_path)
+#sys.path.append(basicCodes_path)
 from datasetRS import *
 import parameters
 

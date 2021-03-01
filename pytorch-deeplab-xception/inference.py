@@ -18,9 +18,9 @@ from torch.autograd import Variable
 
 #early_stopping = EarlyStopping(patience=5, verbose=True)
 import sys
-HOME = os.path.expanduser('~')
-basicCodes_path = HOME + '/data2/Front_DL3/script/'
-sys.path.append(basicCodes_path)
+#HOME = os.path.expanduser('~')
+#basicCodes_path = HOME + '/data2/Front_DL3/script/'
+#sys.path.append(basicCodes_path)
 from datasetRS_Mar15 import *
 import parameters
 
