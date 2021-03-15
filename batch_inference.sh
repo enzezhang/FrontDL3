@@ -1,8 +1,9 @@
 #!/bin/bash
 
 
-#need to define the working path first
-working_path=/home/henry/data/Front_DL3-master
+para_file=para.ini
+para_py=./script/parameters.py
+working_path=$(python2 ${para_py} -p ${para_file} working_root)
 path=$1
 polygon=$2
 network=$3

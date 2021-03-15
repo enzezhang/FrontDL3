@@ -1,4 +1,8 @@
 #!/bin/bash
+para_file=para.ini
+para_py=./script/parameters.py
+working_path=$(python2 ${para_py} -p ${para_file} working_root)
+
 path=$1
 network=$2
 cd $path
@@ -7,7 +11,7 @@ i=0
 count=${#dir[@]}
 while(($i<$count))
 do
-	cd /home/zez/data3/pytorch_deeplab_running/running_dir
+	cd $working_path
 	temp=${network%.tar*}
 	if [ -d $path/${dir[i]}/figure ];then
 		echo "figure exist"
