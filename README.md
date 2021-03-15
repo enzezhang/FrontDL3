@@ -32,16 +32,25 @@ Also need to set the patch size.
 
 the CUDA version should be higher than 10.1.
 
+###
+
+### Download the network to ${User_dir}/Front_DL3/
+
+https://www.dropbox.com/s/c6xmoi8exakk4gy/drn_Jan28_2021_single_0.01_aug_momentum_0.9_from_stretch_16_batch_size.tar?dl=0
 
 ###
 
-### Run the code.
+
+### train the network.
   ```Shell
+ 
   bash preparing_traindata.sh
 
   bash exe.sh
+  ```
+### inference the results
+```Shell
+  bash preparing_influence.sh ${User_dir}/Front_DL3/train
 
-  bash preparing_influence.sh
-
-  bash ./post-processing/exe_test_Helheim.sh
+  bash exe_inference.sh ./polygon/cut_polygon.gmt drn_Jan28_2021_single_0.01_aug_momentum_0.9_from_stretch_16_batch_size.tar
 ```
