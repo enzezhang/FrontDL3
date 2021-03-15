@@ -26,7 +26,7 @@ conda install gdal
 
 In the file para.ini, the user need to set working_root to ${User_dir}/Front_DL3, and code dir to ${User_dir}/Front_DL3/script.
 
-Also need to set the patch size.
+Also need to set the patch size and the data_path.
 
 ### Prepare CUDA
 
