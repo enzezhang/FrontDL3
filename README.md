@@ -28,7 +28,12 @@ In the file para.ini, the user need to set working_root to ${User_dir}/Front_DL3
 
 Also need to set the patch size.
 
+### Prepare CUDA
 
+the CUDA version should be higher than 10.1.
+
+
+###
 
 ### Run the code.
   ```Shell
