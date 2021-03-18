@@ -10,8 +10,13 @@ This is code for applyging deeplabv3+ to glacier front delineation. the code inc
   ```
 ### Install anaconda2 (not 3)
 
-https://docs.conda.io/en/latest/miniconda.html
+https://repo.anaconda.com/archive/
 
+Choose Anaconda2-2019.10-Linux-x86_64.sh
+
+```Shell
+bash Anaconda2-2019.10-Linux-x86_64.sh
+```
 
 ### Install GDAL
 
