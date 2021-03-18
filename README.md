@@ -18,6 +18,7 @@ https://docs.conda.io/en/latest/miniconda.html
 ```Shell
 conda install gdal
 ```
+There could be some library issues.
 ### Install dependencies
   ```Shell
   pip install matplotlib pillow tensorboardX tqdm torch torchvision
