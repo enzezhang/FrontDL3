@@ -58,5 +58,6 @@ https://www.dropbox.com/s/c6xmoi8exakk4gy/drn_Jan28_2021_single_0.01_aug_momentu
 ```Shell
   bash preparing_influence.sh ${User_dir}/Front_DL3/train
 
-  bash exe_inference.sh ./polygon/cut_polygon.gmt drn_Jan28_2021_single_0.01_aug_momentum_0.9_from_stretch_16_batch_size.tar
+  bash exe_inference.sh ${User_dir}/Front_DL3/polygon/cut_polygon.gmt drn_Jan28_2021_single_0.01_aug_momentum_0.9_from_stretch_16_batch_size.tar
 ```
+need to use the full path
