@@ -17,6 +17,11 @@ Choose Anaconda2-2019.10-Linux-x86_64.sh
 ```Shell
 bash Anaconda2-2019.10-Linux-x86_64.sh
 ```
+### install gdal_contrast_stretch 
+
+gdal_contrast_stretch (for normalizing the histogram)
+ https://github.com/gina-alaska/dans-gdal-scripts
+
 
 ### Install GDAL
 
@@ -39,6 +44,13 @@ In the file para.ini, the user need to set working_root to ${User_dir}/Front_DL3
 
 Also need to set the patch size and the data_path.
 
+vi para.in
+# root dir, contain input images, training files, and sub folders (for test)
+working_root =~/Front_DL3 #(this is where you put Front_DL3 codes)
+data_path=~/greenland #(this is the path of data files, it contains all the images of Greenland glaciers)
+# codes dir
+codes_dir =~/Front_DL3/script #(for script folder within Front_DL3)
+
 ### Prepare CUDA
 
 the CUDA version should be higher than 10.1.
@@ -49,6 +61,7 @@ the CUDA version should be higher than 10.1.
 
 https://www.dropbox.com/s/c6xmoi8exakk4gy/drn_Jan28_2021_single_0.01_aug_momentum_0.9_from_stretch_16_batch_size.tar?dl=0
 
+Do not untar it.
 ###
 
 
