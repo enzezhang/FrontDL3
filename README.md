@@ -46,11 +46,12 @@ Also need to set the patch size and the data_path.
 
 vi para.in
 
-root dir, contain input images, training files, and sub folders (for test)
+#### root dir, contain input images, training files, and sub folders (for test)
 
-working_root =~/Front_DL3 #(this is where you put Front_DL3 codes)
-data_path=~/greenland #(this is the path of data files, it contains all the images of Greenland glaciers)
-codes dir
+working_root =~/Front_DL3  (this is where you put Front_DL3 codes)
+#### data path
+data_path=~/greenland (this is the path of data files, it contains all the images of Greenland glaciers)
+#### codes dir
 codes_dir =~/Front_DL3/script #(for script folder within Front_DL3)
 
 ### Prepare CUDA
