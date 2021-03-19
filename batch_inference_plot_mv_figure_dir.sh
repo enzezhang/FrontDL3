@@ -14,7 +14,7 @@ cat $list | while read GID
 do
 	ID=${GID#*GID}
 	GID2=GID_${ID}
-	echo "bash batch_inference.sh $data_path/${GID} /home/zez/data3/Greenland_Front_Mapping/${GID}/polygon/${GID2}_cutting_polygon.gmt $network"
+	echo "bash batch_inference.sh $data_path/${GID}  $data_path/${GID}/polygon/${GID2}_cutting_polygon.gmt $network"
 	echo "bash batch_plot.sh $data_path/${GID} $network"
 	echo "bash batch_mv_figure_dir.sh $data_path/${GID} $network"
 done
