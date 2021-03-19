@@ -1,6 +1,11 @@
 
 #need to modify the data path first
-data_path=/home/henry/data/Greenland_Front_Mapping
+
+para_file=para.ini
+para_py=./script/parameters.py
+working_path=$(python2 ${para_py} -p ${para_file} working_root)
+data_path=$(python2 ${para_py} -p ${para_file} data_path)
+
 list=Glacier_ID_list.txt
 network=$1
 
