@@ -70,7 +70,7 @@ Do not untar it.
  
   bash preparing_traindata.sh
   ```
-  This code will generate list/train_aug.txt that shows the training image and corresponding ground truth image (the file name of this two images are identical). 
+  This code will generate list/train_aug.txt that shows the training image and corresponding ground truth image (the file names of these two images are identical). 
 ``` Shell
   bash exe.sh
   ```
