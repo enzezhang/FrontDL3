@@ -31,8 +31,9 @@ do
 		mkdir $path/${dir[i]}/in_polygon_gmt
 	fi
 	temp=${network%.tar*}
+	
 	if [ -d $path/${dir[i]}/in_polygon_gmt/$temp ];then
-        echo "$path/${dir[i]}/in_polygon_gmt/$temp exist"
+    	echo "$path/${dir[i]}/in_polygon_gmt/$temp exist"
         rm -r $path/${dir[i]}/in_polygon_gmt/$temp
     else
         echo "$path/${dir[i]}/in_polygon_gmt/$temp don't exist"
