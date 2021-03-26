@@ -31,6 +31,12 @@ do
 		mkdir $path/${dir[i]}/in_polygon_gmt
 	fi
 	temp=${network%.tar*}
+	if [ -d $path/${dir[i]}/in_polygon_gmt/$temp ];then
+        echo "$path/${dir[i]}/in_polygon_gmt/$temp exist"
+        rm -r $path/${dir[i]}/in_polygon_gmt/$temp
+    else
+        echo "$path/${dir[i]}/in_polygon_gmt/$temp don't exist"
+    fi
 	echo "mv in_polygon_gmt $path/${dir[i]}/in_polygon_gmt/$temp"
 	mv in_polygon_gmt $path/${dir[i]}/in_polygon_gmt/$temp
 	i=$[i+1]
