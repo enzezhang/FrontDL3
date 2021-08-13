@@ -8,15 +8,21 @@ This is code for applyging deeplabv3+ to glacier front delineation. the code inc
 
   cd Front_DL3
   ```
-### Install anaconda2 (not 3)
+### Install anaconda3
 
-https://repo.anaconda.com/archive/
-
-Choose Anaconda2-2019.10-Linux-x86_64.sh
+https://www.anaconda.com/products/individual#linux
 
 ```Shell
-bash Anaconda2-2019.10-Linux-x86_64.sh
+bash Anaconda3-2021.05-Linux-x86_64.sh
 ```
+
+### Create python 3 environment 
+
+conda create -n py3.6 python=3.6
+
+conda activate py3.6
+
+
 ### install gdal_contrast_stretch 
 
 gdal_contrast_stretch (for normalizing the histogram)
