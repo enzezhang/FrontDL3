@@ -42,7 +42,7 @@ There could be some library issues.
   ```
 ### Install GMT
 ```Shell
-  sudo apt-get install gmt gmt-dcw gmt-gshhg
+  conda install -c conda-forge gmt
 ```
 ### Setting parameter
 
