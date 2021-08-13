@@ -7,8 +7,8 @@ authors: Huang Lingcao
 email:huanglingcao@gmail.com
 add time: 05 May, 2016
 """
-
-import sys,os,basic,json,subprocess,numpy
+from . import basic
+import sys,os,json,subprocess,numpy
 
 try:
     from osgeo import ogr, osr, gdal
