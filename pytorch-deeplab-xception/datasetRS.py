@@ -77,8 +77,9 @@ def read_patch2(patch_obj):
         data = img_obj.read(indexes,window=window)
 
         # replace the nodata as zeros (means background)
-        if img_obj.profile.has_key('nodata'):
+        if 'nodata' in img_obj.profile:
             nodata = img_obj.profile['nodata']
+            print(nodata)
             data[np.where(data==nodata)] = 0
 
         return data

@@ -4,6 +4,7 @@ import numpy as np
 from tqdm import tqdm
 import time
 from mypath import Path
+import torch
 #from dataloaders import make_data_loader
 from modeling.sync_batchnorm.replicate import patch_replication_callback
 from modeling.deeplab import *
@@ -23,7 +24,7 @@ import sys
 #sys.path.append(basicCodes_path)
 from datasetRS import *
 import parameters
-
+from basic_src import *
 
 
 
@@ -57,10 +58,10 @@ class Trainer(object):
         validation_length = len(dataset) - train_length
 	#print ("totol data len is %d , train_length is %d"%(len(train_loader),train_length))	
         [self.train_dataset, self.val_dataset] = torch.utils.data.random_split(dataset, (train_length, validation_length))
-	print("len of train dataset is %d and val dataset is %d and total datalen is %d"%(len(self.train_dataset),len(self.val_dataset),len(dataset)))
-	self.train_loader=torch.utils.data.DataLoader(self.train_dataset, batch_size=args.batch_size,num_workers=args.workers, shuffle=True,drop_last=True)
+        print("len of train dataset is %d and val dataset is %d and total datalen is %d"%(len(self.train_dataset),len(self.val_dataset),len(dataset)))
+        self.train_loader=torch.utils.data.DataLoader(self.train_dataset, batch_size=args.batch_size,num_workers=args.workers, shuffle=True,drop_last=True)
         self.val_loader=torch.utils.data.DataLoader(self.val_dataset, batch_size=args.batch_size,num_workers=args.workers, shuffle=True,drop_last=True)
-	print("len of train loader is %d and val loader is %d"%(len(self.train_loader),len(self.val_loader)))
+        print("len of train loader is %d and val loader is %d"%(len(self.train_loader),len(self.val_loader)))
 	#self.train_loader, self.val_loader, self.test_loader, self.nclass = make_data_loader(args, **kwargs)
 	
         # Define network
@@ -110,7 +111,7 @@ class Trainer(object):
         # Define Evaluator
         self.evaluator = Evaluator(2)
         # Define lr scheduler
-	print("lenght of train_loader is %d"%(len(self.train_loader)))
+        print("lenght of train_loader is %d"%(len(self.train_loader)))
         self.scheduler = LR_Scheduler(args.lr_scheduler, args.lr,
                                             args.epochs, len(self.train_loader))
 
@@ -149,7 +150,7 @@ class Trainer(object):
         self.model.train()
         #tbar = tqdm(self.train_loader)
         num_img_tr = len(self.train_loader)
-	print("start training at epoch %d, with the training length of %d"%(epoch,num_img_tr))
+        print("start training at epoch %d, with the training length of %d"%(epoch,num_img_tr))
         for i, (x, y) in enumerate(self.train_loader):
             start_time=time.time()
             image, target = x, y
@@ -165,22 +166,22 @@ class Trainer(object):
             end_time=time.time()
             #tbar.set_description('Train loss: %.3f' % (train_loss / (i + 1)))
             self.writer.add_scalar('train/total_loss_iter', loss.item(), i + num_img_tr * epoch)
-	    print('[The loss for iteration %d is %.3f and the time used is %.3f]'%(i+num_img_tr*epoch,loss.item(),end_time-start_time))
+            print('[The loss for iteration %d is %.3f and the time used is %.3f]'%(i+num_img_tr*epoch,loss.item(),end_time-start_time))
             # Show 10 * 3 inference results each epoch
             # if i % (num_img_tr // 10) == 0:
             #     global_step = i + num_img_tr * epoch
             #     self.summary.visualize_image(self.writer, self.args.dataset, image, target, output, global_step)
 
         self.writer.add_scalar('train/total_loss_epoch', train_loss, epoch)
-	train_end_time=time.time()
+        train_end_time=time.time()
         print('[Epoch: %d, numImages: %5d, time used : %.3f hour]' % (epoch, i * self.args.batch_size + image.data.shape[0],(train_end_time-train_start_time)/3600))
         print('Loss: %.3f' % (train_loss/len(self.train_loader)))
 	
-	with open(self.args.checkname+".train_out.txt", 'a') as log:
-	    out_massage='[Epoch: %d, numImages: %5d]' % (epoch, i * self.args.batch_size + image.data.shape[0])
-	    log.writelines(out_massage+'\n')
-	    out_massage='Loss: %.3f' % (train_loss/len(self.train_loader))
-	    log.writelines(out_massage+'\n')
+        with open(self.args.checkname+".train_out.txt", 'a') as log:
+            out_massage='[Epoch: %d, numImages: %5d]' % (epoch, i * self.args.batch_size + image.data.shape[0])
+            log.writelines(out_massage+'\n')
+            out_massage='Loss: %.3f' % (train_loss/len(self.train_loader))
+            log.writelines(out_massage+'\n')
         if self.args.no_val:
             # save checkpoint every epoch
             is_best = False
@@ -211,7 +212,7 @@ class Trainer(object):
             target = target.cpu().numpy()
             #pred = np.argmax(pred, axis=1)
             # Add batch sample into evaluator
-	    print("validate on the %d patch of total %d patch"%(i,len(self.val_loader)))
+            print("validate on the %d patch of total %d patch"%(i,len(self.val_loader)))
             self.evaluator.add_batch(target, pred)
 
         # Fast test during the training
@@ -231,12 +232,12 @@ class Trainer(object):
         print('Validation Loss: %.3f' % (test_loss/len((self.val_loader))))
 
         with open(self.args.checkname+".train_out.txt", 'a') as log:
-	    out_message='Validation:'
-	    log.writelines(out_message+'\n')
-	    out_message="Acc:{}, Acc_class:{}, mIoU:{}, fwIoU: {}".format(Acc, Acc_class, mIoU, FWIoU)
-	    log.writelines(out_message+'\n')
-	    out_message='Validation Loss: %.3f' % (test_loss/len((self.val_loader)))
-	    log.writelines(out_message+'\n')
+            out_message='Validation:'
+            log.writelines(out_message+'\n')
+            out_message="Acc:{}, Acc_class:{}, mIoU:{}, fwIoU: {}".format(Acc, Acc_class, mIoU, FWIoU)
+            log.writelines(out_message+'\n')
+            out_message='Validation Loss: %.3f' % (test_loss/len((self.val_loader)))
+            log.writelines(out_message+'\n')
         new_pred = mIoU
 
         if new_pred > self.best_pred:
