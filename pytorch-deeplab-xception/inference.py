@@ -129,12 +129,12 @@ def saveImg(img, patch_info, binary=True, fName=''):
 
         profile.update(dtype=rasterio.uint8, count=1, transform=new_transform, width=xsize, height=ysize)
         # set the block size    , it should be a multiple of 16 (TileLength must be a multiple of 16)
-        if profile.has_key('blockxsize') and profile['blockxsize'] > xsize :
+        if 'blockxsize' in profile and profile['blockxsize'] > xsize :
             if xsize%16==0:
                 profile.update(blockxsize=xsize)
             else:
                 profile.update(blockxsize=16)  #  profile.update(blockxsize=16)
-        if profile.has_key('blockysize') and profile['blockysize'] > ysize :
+        if 'blockysize' in profile and profile['blockysize'] > ysize :
             if ysize%16==0:
                 profile.update(blockysize=ysize)
             else:

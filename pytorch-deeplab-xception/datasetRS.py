@@ -53,7 +53,7 @@ def read_patch(patch_obj,crop_height,crop_width):
             return data_expend
         else:
         # replace the nodata as zeros (means background)
-            if img_obj.profile.has_key('nodata'):
+            if 'nodata' in img_obj.profile:
                 nodata = img_obj.profile['nodata']
                 data[np.where(data==nodata)] = 0
 
@@ -79,7 +79,6 @@ def read_patch2(patch_obj):
         # replace the nodata as zeros (means background)
         if 'nodata' in img_obj.profile:
             nodata = img_obj.profile['nodata']
-            print(nodata)
             data[np.where(data==nodata)] = 0
 
         return data
